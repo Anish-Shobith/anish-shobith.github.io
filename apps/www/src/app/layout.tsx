@@ -1,10 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { ThemeProvider, ThemeToggle } from "@anishshobithps/ui/theme";
-import { Toaster } from "@anishshobithps/ui/toast";
-
 import "~/app/globals.css";
-
+import { cn } from "@anishshobithps/ui";
+import { Container } from "@anishshobithps/ui/container";
 import { env } from "~/env";
+import { palanquin } from "~/shared/fonts";
+import { Providers } from "~/shared/providers";
+import { Navbar } from "./_components/navbar";
 
 const title = "Anish Shobith P S - Full Stack Dev & Automation Enthusiast";
 const description =
@@ -40,12 +42,21 @@ export const viewport: Viewport = {
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen bg-background font-sans text-foreground antialiased">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {props.children}
-          <Toaster />
-        </ThemeProvider>
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <body
+        className={cn(
+          "flex min-h-dvh flex-col bg-background text-foreground",
+          palanquin.className,
+        )}
+      >
+        <Providers>
+            <Navbar />
+          <Container asChild>
+            <main className="flex grow flex-col gap-8 md:gap-10 md:py-10 lg:gap-12 lg:py-12">
+              {props.children}
+            </main>
+          </Container>
+        </Providers>
       </body>
     </html>
   );
