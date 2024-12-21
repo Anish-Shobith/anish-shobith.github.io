@@ -1,31 +1,42 @@
 {
-  "name": "www",
+  "name": "@anishshobithps/nextjs",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "pnpm with-env next build",
+    "clean": "git clean -xdf .cache .next .turbo node_modules",
+    "dev": "pnpm with-env next dev",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "start": "pnpm with-env next start",
+    "typecheck": "tsc --noEmit",
+    "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.10",
-    "@anishshobithps/ui": "workspace:*"
+    "@anishshobithps/ui": "workspace:*",
+    "@t3-oss/env-nextjs": "^0.11.1",
+    "geist": "^1.3.1",
+    "next": "^14.2.15",
+    "react": "catalog:react18",
+    "react-dom": "catalog:react18",
+    "superjson": "2.2.1",
+    "zod": "catalog:"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "14.2.8",
     "@anishshobithps/eslint-config": "workspace:*",
-    "@anishshobithps/typescript-config": "workspace:*",
-    "@types/eslint": "^8",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "autoprefixer": "^10",
-    "eslint": "^8",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.10",
-    "typescript": "^5"
-  }
+    "@anishshobithps/prettier-config": "workspace:*",
+    "@anishshobithps/tailwind-config": "workspace:*",
+    "@anishshobithps/tsconfig": "workspace:*",
+    "@types/node": "^20.17.7",
+    "@types/react": "catalog:react18",
+    "@types/react-dom": "catalog:react18",
+    "dotenv-cli": "^7.4.4",
+    "eslint": "catalog:",
+    "jiti": "^1.21.6",
+    "prettier": "catalog:",
+    "tailwindcss": "catalog:",
+    "typescript": "catalog:"
+  },
+  "prettier": "@anishshobithps/prettier-config"
 }

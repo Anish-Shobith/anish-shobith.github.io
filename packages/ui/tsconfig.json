@@ -1,11 +1,9 @@
 {
-  "extends": "@anishshobithps/typescript-config/react-library.json",
+  "extends": "@anishshobithps/tsconfig/internal-package.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"],
-      "@anishshobithps/ui/*": ["./src/*"]
-    }
+    "lib": ["ES2022", "dom", "dom.iterable"],
+    "jsx": "preserve",
+    "rootDir": "."
   },
   "include": ["src"],
   "exclude": ["node_modules"]
